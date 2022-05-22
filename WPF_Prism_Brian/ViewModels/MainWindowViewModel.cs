@@ -2,6 +2,7 @@
 using Prism.Mvvm;
 using System;
 using System.Windows.Input;
+using WPF_Prism_Brian.Commands;
 
 namespace WPF_Prism_Brian.ViewModels
 {
@@ -14,43 +15,16 @@ namespace WPF_Prism_Brian.ViewModels
             set { SetProperty(ref _title, value); }
         }
 
-        private bool _isEnabeld;
-        public bool IsEnabled
+        private IApplicationCommand _applicationCommands;
+        public IApplicationCommand ApplicationCommands
         {
-            get { return _isEnabeld; }
-            set { 
-                SetProperty(ref _isEnabeld, value);
-                //MyAweSomeCommand.RaiseCanExecuteChanged();
-            }
+            get { return _applicationCommands; }
+            set { SetProperty(ref _applicationCommands, value); }
         }
 
-        private string _updateText;
-        public string UpdateText
+        public MainWindowViewModel(IApplicationCommand applicationCommands)
         {
-            get { return _updateText; }
-            set { 
-                SetProperty(ref _updateText, value); 
-            }
-        }
-
-        public DelegateCommand MyAweSomeCommand { get; set; }
-
-        public MainWindowViewModel()
-        {
-            //MyAweSomeCommand = new DelegateCommand(Execute, CanExecuted)
-            //   .ObservesProperty(() => IsEnabled);
-            MyAweSomeCommand = new DelegateCommand(Execute)
-                .ObservesCanExecute(() => IsEnabled);
-        }
-
-        private void Execute()
-        {
-            UpdateText = $"Update {DateTime.Now}";
-        }
-
-        private bool CanExecuted()
-        {
-            return IsEnabled;
+            ApplicationCommands = applicationCommands;
         }
     }
 }

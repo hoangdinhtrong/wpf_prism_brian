@@ -4,25 +4,24 @@
         xmlns:prism="http://prismlibrary.com/"
         prism:ViewModelLocator.AutoWireViewModel="True"
         Title="{Binding Title}" Height="350" Width="525" >
-    <Grid HorizontalAlignment="Center"
-          VerticalAlignment="Center">
-        <Grid.RowDefinitions>
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-            <RowDefinition Height="auto" />
-        </Grid.RowDefinitions>
-        <CheckBox IsChecked="{Binding IsEnabled}" 
-                  Content="Can Excute Command"
-                  Margin="10" 
-                  Grid.Row="0"/>
-        <Button Command="{Binding MyAweSomeCommand}"
-                Content="My Awesome Command"
-                Margin="10" 
-                Grid.Row="1"/>
-        <TextBlock Text="{Binding UpdateText}"
-                   Margin="20"
-                   FontSize="22" 
-                   Grid.Row="2"/>
+    <Window.Resources>
+        <Style TargetType="TabItem">
+            <Setter Property="Header" Value="{Binding DataContext.Title}" />
+        </Style>
+    </Window.Resources>
 
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <Button Content="Save" 
+                Margin="10" 
+                Command="{Binding ApplicationCommands.SaveAllCommand}"/>
+
+        <TabControl Grid.Row="1" 
+                    Margin="10" 
+                    prism:RegionManager.RegionName="ContentRegion" />
     </Grid>
 </Window>

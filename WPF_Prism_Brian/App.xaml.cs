@@ -1,6 +1,7 @@
 ﻿using Prism.Ioc;
 using Prism.Modularity;
 using System.Windows;
+using WPF_Prism_Brian.Modules;
 using WPF_Prism_Brian.Views;
 
 namespace WPF_Prism_Brian
@@ -22,7 +23,8 @@ namespace WPF_Prism_Brian
 
         protected override void ConfigureModuleCatalog(IModuleCatalog moduleCatalog)
         {
-            base.ConfigureModuleCatalog(moduleCatalog);
+            moduleCatalog.AddModule<ModuleAModule>();
+            moduleCatalog.AddModule<ModuleBModule>();
         }
     }
 }

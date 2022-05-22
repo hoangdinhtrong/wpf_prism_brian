@@ -9,6 +9,5 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\ImplCommands\" />
-    <Folder Include="Modules\" />
   </ItemGroup>
 </Project>

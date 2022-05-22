@@ -5,10 +5,12 @@
     <UseWPF>true</UseWPF>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Prism.Unity" Version="8.1.97" />
+    <Compile Remove="Modules\**" />
+    <EmbeddedResource Remove="Modules\**" />
+    <None Remove="Modules\**" />
+    <Page Remove="Modules\**" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\ImplCommands\" />
-    <Folder Include="Modules\" />
+    <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
 </Project>

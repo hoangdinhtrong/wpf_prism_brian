@@ -1,0 +1,28 @@
+﻿<Window x:Class="WPF_Prism_Brian.Views.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:prism="http://prismlibrary.com/"
+        prism:ViewModelLocator.AutoWireViewModel="True"
+        Title="{Binding Title}" Height="350" Width="525" >
+    <Grid HorizontalAlignment="Center"
+          VerticalAlignment="Center">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+        </Grid.RowDefinitions>
+        <CheckBox IsChecked="{Binding IsEnabled}" 
+                  Content="Can Excute Command"
+                  Margin="10" 
+                  Grid.Row="0"/>
+        <Button Command="{Binding MyAweSomeCommand}"
+                Content="My Awesome Command"
+                Margin="10" 
+                Grid.Row="1"/>
+        <TextBlock Text="{Binding UpdateText}"
+                   Margin="20"
+                   FontSize="22" 
+                   Grid.Row="2"/>
+
+    </Grid>
+</Window>

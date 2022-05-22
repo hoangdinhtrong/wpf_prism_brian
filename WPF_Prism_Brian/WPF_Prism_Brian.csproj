@@ -7,4 +7,8 @@
   <ItemGroup>
     <PackageReference Include="Prism.Unity" Version="8.1.97" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Commands\ImplCommands\" />
+    <Folder Include="Modules\" />
+  </ItemGroup>
 </Project>
